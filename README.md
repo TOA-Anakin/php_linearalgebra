@@ -1,9 +1,13 @@
 # linear_algebra
+
+```
+sudo apt install php-dev
+```
  
 To build and install the extension, you can run the following commands in the extension directory:
 ```
 phpize
-./configure --enable-linear_solver
+./configure --enable-linear_algebra
 make
 sudo make install
 ```
