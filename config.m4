@@ -1,6 +1,6 @@
-PHP_ARG_WITH(linear_algebra, whether to enable the linear_algebra extension, [yes])
-if test $PHP_LINEAR_ALGEBRA != "no"; then
-    PHP_SUBST(LINEAR_ALGEBRA_SHARED_LIBADD)
-    PHP_ADD_LIBRARY(stdc++, 1, LINEAR_ALGEBRA_SHARED_LIBADD)
-    PHP_NEW_EXTENSION(linear_algebra, linear_algebra.cpp, $ext_shared)
+PHP_ARG_ENABLE(linearalgebra, Whether to enable the LinearAlgebraPHP extension, [ --enable-linearalgebra-php Enable LinearAlgebraPHP])
+
+if test "$PHP_LINEARALGEBRA" = "yes"; then
+    PHP_REQUIRE_CXX() # support for the c++
+    PHP_NEW_EXTENSION([linearalgebra], [php_linearalgebra.cpp], $ext_shared,, [-Wall], true) # setup our extension
 fi
